@@ -35,12 +35,13 @@ void loop() {
   //  Regular (orange) flame:
     int r = 230, g = 90, b = 0;
 
-  //  Flicker, based on our initial RGB values
+  // Flicker, based on our initial RGB values
+  // To limit color variation, remove flicker variable as needed
   for(int i=0; i<strip.numPixels(); i++) {
     int flicker = random(0,25);
     int r1 = r-flicker;
     int g1 = g-flicker;
-    int b1 = b-flicker;
+    int b1 = b;
     if(g1<0) g1=0;
     if(r1<0) r1=0;
     if(b1<0) b1=0;
