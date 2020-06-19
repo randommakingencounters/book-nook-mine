@@ -22,7 +22,10 @@ int brightness =50;
 //   NEO_GRB     Pixels are wired for GRB bitstream (most NeoPixel products)
 //   NEO_RGB     Pixels are wired for RGB bitstream (v1 FLORA pixels, not v2)
 
-Adafruit_NeoPixel strip = Adafruit_NeoPixel(1, 1, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel light01 = Adafruit_NeoPixel(1, 1, NEO_GRB + NEO_KHZ800);
+// The current board design allows for up to three distinct pins
+// Adafruit_NeoPixel light02 = Adafruit_NeoPixel(1, 2, NEO_GRB + NEO_KHZ800);
+// Adafruit_NeoPixel light03 = Adafruit_NeoPixel(1, 3, NEO_GRB + NEO_KHZ800);
 
 void setup() {
   strip.begin();
