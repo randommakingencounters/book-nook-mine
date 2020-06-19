@@ -12,7 +12,7 @@
 
 //  The overall brightness 0-255
 
-int brightness =50;
+int brightness =150;
 
 // Parameter 1 = number of pixels in strip
 // Parameter 2 = Arduino pin number (most are valid)
