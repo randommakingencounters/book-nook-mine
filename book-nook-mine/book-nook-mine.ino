@@ -1,12 +1,17 @@
+// Base NeoPixel flame code thanks to Simon Cleveland (mysecretstache)
+// For the ultimate NeoPixel guide, check out:
+// https://learn.adafruit.com/adafruit-neopixel-uberguide/overview
+
 #include <Adafruit_NeoPixel.h>
 #ifdef __AVR__
   #include <avr/power.h>
 #endif
 
+// What pin is the NeoPixel attached to
 #define PIN 5
 
-//  The overall fire brightness
-//  (this can affect both color levels and power consumption)
+//  The overall brightness 0-255
+
 int brightness =50;
 
 // Parameter 1 = number of pixels in strip
@@ -16,14 +21,8 @@ int brightness =50;
 //   NEO_KHZ400  400 KHz (classic 'v1' (not v2) FLORA pixels, WS2811 drivers)
 //   NEO_GRB     Pixels are wired for GRB bitstream (most NeoPixel products)
 //   NEO_RGB     Pixels are wired for RGB bitstream (v1 FLORA pixels, not v2)
-Adafruit_NeoPixel strip = Adafruit_NeoPixel(1, 1, NEO_GRB + NEO_KHZ800);
 
-// IMPORTANT: To reduce NeoPixel burnout risk, add 1000 uF capacitor across
-// pixel power leads, add 300 - 500 Ohm resistor on first pixel's data input
-// and minimize distance between Arduino and first pixel.  Avoid connecting
-// on a live circuit...if you must, connect GND first.
-// For the ultimate NeoPixel guide, check out:
-// https://learn.adafruit.com/adafruit-neopixel-uberguide/overview
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(1, 1, NEO_GRB + NEO_KHZ800);
 
 void setup() {
   strip.begin();
@@ -32,19 +31,9 @@ void setup() {
 }
 
 void loop() {
-
-  //  Uncomment one of these RGB (Red, Green, Blue) values to
-  //  set the base color of the flame.  The color will flickr
-  //  based on the initial base color
   
   //  Regular (orange) flame:
     int r = 230, g = 90, b = 0;
-
-  //  Purple flame:
-  // int r = 158, g = 8, b = 148;
-
-  //  Green flame:
-  //int r = 74, g = 150, b = 12;
 
   //  Flicker, based on our initial RGB values
   for(int i=0; i<strip.numPixels(); i++) {
@@ -59,7 +48,5 @@ void loop() {
   }
   strip.show();
 
-  //  Adjust the delay here, if you'd like.  Right now, it randomizes the 
-  //  color switch delay to give a sense of realism
   delay(random(10,100));
 }
