@@ -10,6 +10,9 @@
 // What pin is the NeoPixel attached to
 #define PIN 5
 
+unsigned long currentMillis = millis();
+unsigned long previousMillis;
+
 //  The overall brightness 0-255
 
 int brightness =100;
